@@ -12,16 +12,19 @@
   
   /* Header */
   header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #333;
     color: white;
+    padding-left: 120px;
+    padding-right: 120px;
   }
   
   header .logo img {
-    height: 50px;
+    height: 100px;
   }
   
   header nav ul {
@@ -40,7 +43,7 @@
   }
   
   header .cta-button {
-    background-color: #ff6600;
+    background-color: #D8B04A;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -48,18 +51,38 @@
     border-radius: 5px;
   }
   
-  /* Hero Section */
-  .hero {
-    background-image: url('assets/images/hero.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-  }
+/* Hero Section */
+.hero {
+  position: relative;  /* Esto es necesario para posicionar el overlay sobre la imagen */
+  background-image: url('../assets/images/cartagena-banner-home.avif');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* Capa de opacidad negra */
+.hero::before {
+  content: '';  /* Creamos un contenido vacío */
+  position: absolute;  /* Lo posicionamos sobre la imagen de fondo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);  /* Opacidad del 50% */
+  z-index: 1;  /* Aseguramos que quede sobre la imagen, pero debajo del texto */
+}
+
+/* El contenido de la hero debe quedar por encima del overlay */
+.hero .hero-content {
+  position: relative;  /* Para que el contenido quede sobre la capa de opacidad */
+  z-index: 2;
+}
+
   
   .hero-content h1 {
     font-size: 3rem;
@@ -70,69 +93,100 @@
     margin-top: 10px;
   }
   
-  /* Cards Section */
-  .cards-section {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 20px;
-  }
+/* Cards Section */
+.cards-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;  /* Permite que las cards se acomoden en filas */
+  gap: 20px;  /* Espacio entre las cards */
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.card {
+  background-color: #fff;
+  width: 30%;  /* En escritorios, cada card ocupará el 30% del ancho */
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);  /* Efecto de hover */
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #777;
+  margin: 10px 0;
+}
+
+.card button {
+  background-color: #D8B04A;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
   
-  .card {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    width: 250px;
-  }
-  
-  .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card h3 {
-    margin-top: 15px;
-  }
-  
-  .card button {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
-  /* Contact Form */
-  .contact-form {
-    background-color: #f4f4f4;
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .contact-form form {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .contact-form button {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+/* Contact Form */
+.contact-form {
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+  text-align: center;
+  margin: 0 auto;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  /* Coloca todo el contenido en columna */
+}
+
+/* Título del formulario */
+.contact-form h2 {
+  margin-bottom: 20px;  /* Espacio debajo del título */
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Estilo para el formulario */
+.contact-form form {
+  max-width: 500px;
+  width: 100%;  /* Asegura que el formulario ocupe todo el espacio disponible */
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background-color: #D8B04A;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
   
   /* Footer */
   footer {
@@ -148,3 +202,97 @@
     text-decoration: none;
   }
   
+  /* Estilos Responsivos */
+
+/* Para tablets (pantallas medianas) */
+@media (max-width: 1024px) {
+  header {
+      padding-left: 60px;
+      padding-right: 60px;
+  }
+
+  .hero {
+      height: 70vh;
+  }
+
+  .contact-form {
+      padding: 40px 30px;
+  }
+
+  header .logo img {
+      height: 80px;
+  }
+
+  header nav ul {
+      display: flex;
+  }
+
+  header nav ul li {
+      margin: 0 10px;
+  }
+}
+
+/* Para dispositivos móviles (pantallas pequeñas) */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+  }
+
+  header .logo img {
+      height: 60px;
+  }
+
+  header nav ul {
+      display: block;
+      margin-top: 10px;
+  }
+
+  header nav ul li {
+      margin: 10px 0;
+  }
+
+  .hero {
+      height: 60vh;
+  }
+
+  .contact-form {
+      height: auto;
+      padding: 30px 20px;
+  }
+
+  .contact-form h2 {
+      font-size: 1.8rem;
+  }
+
+  .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+  }
+
+  .contact-form button {
+      padding: 12px 25px;
+  }
+
+  /* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .cards-section {
+    justify-content: center; /* Centra las cards en pantallas pequeñas */
+    max-width: 100%;
+  }
+
+  .card {
+    width: 100%;  /* En dispositivos móviles, cada card ocupa el 100% */
+    margin-bottom: 20px;  /* Espacio entre las cards */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;  /* En pantallas más pequeñas, las cards ocupan todo el ancho */
+  }
+}
+}
