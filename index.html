@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Opcionalmente puedes agregar un framework como Bootstrap o Tailwind aquí -->
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logotipo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#cards">Servicios</a></li>
+        <li><a href="#contact">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="cta-button">Contáctanos</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Transforma tu negocio hoy</h1>
+      <p>Soluciones innovadoras para tu empresa</p>
+    </div>
+  </section>
+
+  <!-- Cards Section -->
+  <section id="cards" class="cards-section">
+    <div class="card">
+      <img src="assets/images/card1.jpg" alt="Card 1">
+      <h3>Servicio 1</h3>
+      <p>Descripción breve del servicio 1</p>
+      <button>Más info</button>
+    </div>
+    <div class="card">
+      <img src="assets/images/card2.jpg" alt="Card 2">
+      <h3>Servicio 2</h3>
+      <p>Descripción breve del servicio 2</p>
+      <button>Más info</button>
+    </div>
+    <div class="card">
+      <img src="assets/images/card3.jpg" alt="Card 3">
+      <h3>Servicio 3</h3>
+      <p>Descripción breve del servicio 3</p>
+      <button>Más info</button>
+    </div>
+  </section>
+
+  <!-- Formulario de Contacto -->
+  <section id="contact" class="contact-form">
+    <h2>Contáctanos</h2>
+    <form id="contact-form" action="#" method="post">
+      <input type="text" id="name" name="name" placeholder="Nombre" required>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <textarea id="message" name="message" placeholder="Tu mensaje" required minlength="20"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+    <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/script.js"></script> <!-- JavaScript opcional para validación en tiempo real -->
+</body>
+</html>
